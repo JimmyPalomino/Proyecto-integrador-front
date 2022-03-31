@@ -1,16 +1,53 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { LoginComponent } from './components/auth/login/login.component';
+
+import { FormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
+import { ButtonModule } from 'primeng/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MessagesErrorComponent } from './components/form/messages-error/messages-error.component';
+import { HttpClientModule } from '@angular/common/http';
+
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { LogoutComponent } from './components/auth/logout/logout.component';
+import { SpinnerComponent } from './components/util/spinner/spinner.component';
+import { HeaderComponent } from './components/portfolio/header/header.component';
+import { AboutComponent } from './components/portfolio/about/about.component';
+import { ExperienceComponent } from './components/portfolio/experience/experience.component';
+import { EducationComponent } from './components/portfolio/education/education.component';
+import { SkillsComponent } from './components/portfolio/skills/skills.component';
+import { ProjectsComponent } from './components/portfolio/projects/projects.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    PortfolioComponent,
+    MessagesErrorComponent,
+    LogoutComponent,
+    SpinnerComponent,
+    HeaderComponent,
+    AboutComponent,
+    ExperienceComponent,
+    EducationComponent,
+    SkillsComponent,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    PasswordModule,
+    ButtonModule,
+    ProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
