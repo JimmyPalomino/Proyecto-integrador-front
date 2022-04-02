@@ -1,35 +1,50 @@
-<p-dialog header="Login" [(visible)]="show" [modal]="true" [style]="{width: '40vw'}" [baseZIndex]="10000"
-    [draggable]="false" [resizable]="false">
-        
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
-        <div class="form-group">
-          <input
-            id="user"
-            type="text"
-            pInputText
-            formControlName="user"
-            name="user"
-            placeholder="User"
-            class="form-control"
-          />
-          <app-messages-error [control]="user"></app-messages-error>
-        </div>
-        <div class="form-group">
-          <input
-            id="password"
-            type="password"
-            pPassword
-            [feedback]="false"
-            formControlName="password"
-            name="password"
-            placeholder="Password"
-            class="form-control"
-          />
-          <app-messages-error [control]="password"></app-messages-error>
-        </div>
-      </form>
-        <ng-template pTemplate="footer">
-            <p-button type="submit" icon="pi pi-check" (click)="login()" label="Submit" class="p-button-text"></p-button>
-            <p-button icon="pi pi-times" (click)="closeModal()" label="Cancel"></p-button>
-        </ng-template>
+<p-dialog
+  header="Login"
+  [(visible)]="show"
+  [modal]="true"
+  [style]="{ width: '40vw' }"
+  [baseZIndex]="10000"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <form [formGroup]="loginForm">
+    <div class="form-group">
+      <input
+        type="text"
+        pInputText
+        formControlName="user"
+        name="user"
+        placeholder="User"
+        class="form-control"
+      />
+      <app-messages-error [control]="user"></app-messages-error>
+    </div>
+    <div class="form-group">
+      <input
+        type="password"
+        pPassword
+        [feedback]="false"
+        formControlName="password"
+        name="password"
+        placeholder="Password"
+        class="form-control"
+      />
+      <app-messages-error [control]="password"></app-messages-error>
+    </div>
+  </form>
+  <ng-template pTemplate="footer">
+    <p-button
+      (click)="login()"
+      [disabled]="loginForm.invalid"
+      icon="pi pi-check"
+      label="Submit"
+      class="p-button-text"
+    ></p-button>
+    <p-button
+      icon="pi pi-times"
+      (click)="closeModal()"
+      label="Cancel"
+    ></p-button>
+  </ng-template>
 </p-dialog>
+<p-toast></p-toast>

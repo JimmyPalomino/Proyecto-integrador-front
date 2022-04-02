@@ -14,6 +14,8 @@ import { PanelModule } from 'primeng/panel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuModule } from 'primeng/menu';
 import { DialogModule } from 'primeng/dialog';
+import {ToastModule} from 'primeng/toast';
+import {RippleModule} from 'primeng/ripple';
 
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import { LogoutComponent } from './components/auth/logout/logout.component';
@@ -54,7 +56,9 @@ import { LoginComponent } from './components/auth/modal/login/login.component';
     PanelModule,
     BrowserAnimationsModule,
     MenuModule,
-    DialogModule
+    DialogModule,
+    ToastModule,
+    RippleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,5 @@
-<div *ngIf="control.invalid && (control.dirty || control.touched)"
-    class="alert alert-danger">
-  <div *ngIf="control.errors?.['required']">
+<div *ngIf="control.invalid && (control.dirty || control.touched)">
+  <small *ngIf="control.errors?.['required']" class="p-error">
     Este campo es obligatorio
-  </div>
+  </small>
 </div>

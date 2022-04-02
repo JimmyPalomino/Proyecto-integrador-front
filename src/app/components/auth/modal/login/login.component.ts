@@ -1,12 +1,14 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 import { take } from 'rxjs';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login-modal',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [MessageService]
 })
 export class LoginComponent implements OnInit {
 
@@ -21,7 +23,7 @@ export class LoginComponent implements OnInit {
   @Output() 
   showChange = new EventEmitter();
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private messageService: MessageService) { }
 
   ngOnInit(): void {
   }
@@ -43,12 +45,18 @@ export class LoginComponent implements OnInit {
         console.log("datalogin " + data);
         if (data)
           this.closeModal();
+        else
+          this.showError();
       });
   }
 
   closeModal() {
     this.show = false;
     this.showChange.emit(this.show);
+  }
+
+  showError() {
+    this.messageService.add({severity: 'error', summary: 'Error', detail: 'Message Content'});
   }
 
 }
