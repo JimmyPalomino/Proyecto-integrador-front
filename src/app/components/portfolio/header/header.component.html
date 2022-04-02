@@ -1,2 +1,12 @@
-<p>header works!</p>
-<app-logout></app-logout>
+<p-panel [header]="candidate.nombre + ' ' + candidate.apellido">
+    <ng-template pTemplate="icons">
+        <button pButton class="p-panel-header-icon p-link p-button-lg" icon="pi pi-instagram"></button>
+        <button pButton class="p-panel-header-icon p-link p-button-lg" icon="pi pi-facebook"></button>
+        <button pButton class="p-panel-header-icon p-link p-button-lg" icon="pi pi-twitter"></button>
+        <button *ngIf="!loginService.isLogged()" pButton pRipple type="button" label="Login" class="p-button-outlined p-button-sm" (click)="showModalLogin()"></button>
+        <button *ngIf="loginService.isLogged()" pButton pRipple type="button" label="Logout" class="p-button-outlined p-button-sm" (click)="logout()"></button>
+    </ng-template>
+</p-panel>
+
+<app-login-modal [(show)]="displayModal"></app-login-modal>
+

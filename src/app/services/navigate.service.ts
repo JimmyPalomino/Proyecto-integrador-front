@@ -23,12 +23,12 @@ export class NavigateService {
   }
 
   public goPortfolio(): Promise<boolean> {
-    return this.navigate(['/portfolio']);
+    return this.navigate(['/portfolio'], 1000);
     //return this.router.navigate(["/portfolio"]);
   }
 
   public goLogin(): Promise<boolean> {
-    return this.navigate(['/login']);
+    return this.navigate(['/login'], 1000);
     //return this.router.navigate(["/login"]);
   }
 }
