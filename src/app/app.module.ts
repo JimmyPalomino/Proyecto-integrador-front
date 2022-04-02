@@ -18,7 +18,6 @@ import {ToastModule} from 'primeng/toast';
 import {RippleModule} from 'primeng/ripple';
 import {ImageModule} from 'primeng/image';
 import {AvatarModule} from 'primeng/avatar';
-
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import { LogoutComponent } from './components/auth/logout/logout.component';
 import { SpinnerComponent } from './components/util/spinner/spinner.component';
