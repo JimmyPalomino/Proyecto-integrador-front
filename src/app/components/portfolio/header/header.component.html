@@ -1,4 +1,4 @@
-<p-panel [header]="candidate.nombre + ' ' + candidate.apellido">
+<p-panel [header]="'Argentina Programa - #YoProgramo'">
     <ng-template pTemplate="icons">
         <button pButton class="p-panel-header-icon p-link p-button-lg" icon="pi pi-instagram"></button>
         <button pButton class="p-panel-header-icon p-link p-button-lg" icon="pi pi-facebook"></button>
@@ -6,7 +6,14 @@
         <button *ngIf="!loginService.isLogged()" pButton pRipple type="button" label="Login" class="p-button-outlined p-button-sm" (click)="showModalLogin()"></button>
         <button *ngIf="loginService.isLogged()" pButton pRipple type="button" label="Logout" class="p-button-outlined p-button-sm" (click)="logout()"></button>
     </ng-template>
+
+    <p-image src="/assets/images/portada1.jpg" alt="Image" width="100%" height="300"></p-image>
+    <div id="myAvatar">
+        <p-avatar image="/assets/images/bender.jpg" class="p-avatar-circle p-avatar-xl" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
+        <p>{{candidate.nombre + ' ' + candidate.apellido}}</p>
+        <p>Desarrollador JAVA Fullstack Semi-Senior</p>
+        <p>Buenos Aires, Argentina <span> <a href="#">Informacion de contacto</a></span></p>
+    </div> 
 </p-panel>
 
 <app-login-modal [(show)]="displayModal"></app-login-modal>
-
