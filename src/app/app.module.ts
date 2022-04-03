@@ -14,11 +14,13 @@ import { PanelModule } from 'primeng/panel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuModule } from 'primeng/menu';
 import { DialogModule } from 'primeng/dialog';
-import {ToastModule} from 'primeng/toast';
-import {RippleModule} from 'primeng/ripple';
-import {ImageModule} from 'primeng/image';
-import {AvatarModule} from 'primeng/avatar';
-import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { ToastModule } from 'primeng/toast';
+import { RippleModule } from 'primeng/ripple';
+import { ImageModule } from 'primeng/image';
+import { AvatarModule } from 'primeng/avatar';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import {ProgressBarModule} from 'primeng/progressbar';
+
 import { LogoutComponent } from './components/auth/logout/logout.component';
 import { SpinnerComponent } from './components/util/spinner/spinner.component';
 import { HeaderComponent } from './components/portfolio/header/header.component';
@@ -61,7 +63,8 @@ import { LoginComponent } from './components/auth/modal/login/login.component';
     ToastModule,
     RippleModule,
     ImageModule,
-    AvatarModule
+    AvatarModule,
+    ProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
