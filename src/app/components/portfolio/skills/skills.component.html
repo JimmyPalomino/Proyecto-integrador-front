@@ -1,5 +1,20 @@
 <div class="blockPortfolio">
-    <h4>Habilidades</h4>
-    <label for="pb1">Java EE</label>
-    <p-progressBar id="pb1" [value]="70" [style]="{'height': '1rem', 'width': '75%'}"></p-progressBar>
+    <div class="row">
+        <div class="col-sm-11">
+            <h4>Habilidades</h4>
+        </div>
+        <div class="col-sm-1">
+          <span class="myIcon"><i class="pi pi-plus"></i></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-11">
+            <span>Java EE</span>
+            <p-progressBar [value]="70" [style]="{'height': '1rem', 'width': '75%'}"></p-progressBar>
+        </div>
+        <div class="col-sm-1">
+          <span class="myIcon"><i class="pi pi-pencil"></i></span>
+          <span class="myIcon"><i class="pi pi-trash"></i></span>
+        </div>
+    </div>
 </div>
