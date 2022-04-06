@@ -19,9 +19,30 @@ html, body {
 .myIcon {
     margin-left: 0.25rem;
     margin-right: 0.25rem;
+    cursor: pointer;
     display: none;
 }
 
 .myIcon i { 
     font-size: 1.2rem;
 }
+
+/* BEGIN STYLES MODAL */
+.p-dialog .p-dialog-header {
+    border-bottom: 0px ;
+}
+
+.p-dialog .p-dialog-footer {
+    border-top: 0px ;
+}
+
+:host ::ng-deep .p-dialog .p-button {
+    min-width: 4rem;
+}
+
+/* END STYLES MODAL */
+
+.disable-click {
+    pointer-events: none;
+    cursor: default;
+  }
