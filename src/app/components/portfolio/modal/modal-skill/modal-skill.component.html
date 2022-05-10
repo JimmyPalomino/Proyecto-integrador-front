@@ -1,0 +1,36 @@
+<app-modal-item>
+  <ng-container form>
+    <form [formGroup]="form">
+      <div class="form-group">
+        <input
+          pInputText
+          formControlName="nombre"
+          name="nombre"
+          placeholder="Nombre"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <p-inputNumber
+          formControlName="progreso"
+          placeholder="Progreso"
+          mode="decimal"
+          [showButtons]="true"
+          inputId="minmax-buttons"
+          [min]="0"
+          [max]="100"
+        >
+        </p-inputNumber>
+      </div>
+      
+        <p-button
+          (click)="submit()"
+          [disabled]="form.invalid"
+          [ngClass]="{ 'disable-click': form.invalid }"
+          label="Submit"
+        ></p-button>
+        <p-button (click)="closeModal()" label="Cancel"></p-button>
+      
+    </form>
+  </ng-container>
+</app-modal-item>

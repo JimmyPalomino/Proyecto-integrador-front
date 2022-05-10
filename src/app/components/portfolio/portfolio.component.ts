@@ -10,16 +10,22 @@ import { CandidateService } from 'src/app/services/candidate.service';
   styleUrls: ['./portfolio.component.css'],
 })
 export class PortfolioComponent implements OnInit {
-
   public candidate: Candidate = new Candidate();
 
-  constructor(private primengConfig: PrimeNGConfig, private candidateService: CandidateService) {
+  constructor(
+    private primengConfig: PrimeNGConfig,
+    private candidateService: CandidateService
+  ) {
     this.primengConfig.ripple = true;
   }
 
   ngOnInit(): void {
-    this.candidateService.getById(1).pipe(take(1)).subscribe( (data: Candidate) => this.candidate = data,
-    error => console.error(error)
-    );
+    this.candidateService
+      .getById(1)
+      .pipe(take(1))
+      .subscribe({
+        next: (data: Candidate) => this.candidate = data,
+        error: (error: any) => console.error(error),
+      });
   }
 }

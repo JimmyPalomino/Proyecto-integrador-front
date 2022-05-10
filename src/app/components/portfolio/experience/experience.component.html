@@ -1,27 +1,35 @@
 <div class="blockPortfolio">
-    <div class="row">
-      <div class="col-sm-11">
-        <h4>Experiencia</h4>
-      </div>
-      <div class="col-sm-1">
-        <span class="myIcon"><i class="pi pi-plus"></i></span>
-      </div>
+  <div class="row">
+    <div class="col-sm-11">
+      <h4>Experiencia</h4>
     </div>
-    <div class="row">
-        <div class="col-sm-1">
-            <p-avatar image="/assets/images/pepsi.png" class="p-avatar-square p-avatar-l" styleClass="mr-2" size="large" shape="square"></p-avatar>
-          </div>
-          <div class="col-sm-10">
-            <h6>Distribuidor oficial</h6>
-            <span>Pepsi - Fulltime</span>
-            <br/>
-            <span>Marzo 2001 - Junio 2011</span>
-            <br/>
-            <span>Marcos Paz, Buenos Aires</span>
-          </div>
-          <div class="col-sm-1">
-            <span class="myIcon"><i class="pi pi-pencil"></i></span>
-            <span class="myIcon"><i class="pi pi-trash"></i></span>
-          </div>
+    <div class="col-sm-1">
+      <span class="myIcon"
+        ><i class="pi pi-plus" (click)="showModal(newExperience)"></i
+      ></span>
     </div>
+  </div>
+  <div class="row" *ngFor="let e of experiences">
+    <div class="col-sm-1">
+      <p-avatar
+        image="/assets/images/pepsi.png"
+        class="p-avatar-square p-avatar-l"
+        styleClass="mr-2"
+        size="large"
+        shape="square"
+      ></p-avatar>
+    </div>
+    <div class="col-sm-10">
+      <h6>{{ e.cargo }}</h6>
+      <span>{{ e.empresa }} - Fulltime</span>
+      <br />
+      <span>{{ e.fechaDesde }} - {{ e.fechaHasta }}</span>
+      <br />
+      <span>{{ e.direccion }}</span>
+    </div>
+    <div class="col-sm-1">
+      <app-icon-edit-delete (editItemEvent)="showModal(e)" (deleteItemEvent)="delete(e.id)">
+      </app-icon-edit-delete>
+    </div>
+  </div>
 </div>

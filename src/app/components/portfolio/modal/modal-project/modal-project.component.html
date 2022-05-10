@@ -1,0 +1,52 @@
+<p-dialog
+  [(visible)]="showDialog"
+  [modal]="true"
+  [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+  [draggable]="false"
+  [resizable]="false"
+  [closable]="false"
+>
+ <div appendTo="header"></div>
+  <ng-template pTemplate="header">
+    <h3>Editar proyecto</h3>
+  </ng-template>
+
+  <ng-template pTemplate="content">
+    <form [formGroup]="form">
+      <div class="form-group">
+        <input
+          pInputText
+          formControlName="nombre"
+          placeholder="Nombre"
+          name="nombre"
+          class="form-control"
+          id="nombre"
+        />
+      </div>
+      <div class="form-group">
+        <textarea
+          formControlName="descripcion"
+          name="descripcion"
+          placeholder="Descripcion"
+          class="form-control"
+          [rows]="4"
+          [cols]="30"
+        >
+        </textarea>
+      </div>
+      <!--<app-messages-error [control]="nombre"></app-messages-error>-->
+    </form>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <p-button
+      (click)="submit()"
+      [disabled]="form.invalid"
+      [ngClass]="{ 'disable-click': form.invalid }"
+      label="Submit"
+    ></p-button>
+    <p-button (click)="closeModal()" label="Cancel"></p-button>
+  </ng-template>
+</p-dialog>

@@ -19,7 +19,14 @@ import { RippleModule } from 'primeng/ripple';
 import { ImageModule } from 'primeng/image';
 import { AvatarModule } from 'primeng/avatar';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import {ProgressBarModule} from 'primeng/progressbar';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {InputNumberModule} from 'primeng/inputnumber';
+import {ConfirmationService, MessageService} from 'primeng/api';
+import {DialogService, DynamicDialogRef} from 'primeng/dynamicdialog';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import {InputMaskModule} from 'primeng/inputmask';
 
 import { LogoutComponent } from './components/auth/logout/logout.component';
 import { SpinnerComponent } from './components/util/spinner/spinner.component';
@@ -30,6 +37,12 @@ import { EducationComponent } from './components/portfolio/education/education.c
 import { SkillsComponent } from './components/portfolio/skills/skills.component';
 import { ProjectsComponent } from './components/portfolio/projects/projects.component';
 import { LoginComponent } from './components/auth/modal/login/login.component';
+import { ModalProjectComponent } from './components/portfolio/modal/modal-project/modal-project.component';
+import { ModalSkillComponent } from './components/portfolio/modal/modal-skill/modal-skill.component';
+import { ModalItemComponent } from './components/portfolio/modal/modal-item/modal-item.component';
+import { ModalEducationComponent } from './components/portfolio/modal/modal-education/modal-education.component';
+import { ModalExperienceComponent } from './components/portfolio/modal/modal-experience/modal-experience.component';
+import { IconEditDeleteComponent } from './components/portfolio/icon-edit-delete/icon-edit-delete.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +57,13 @@ import { LoginComponent } from './components/auth/modal/login/login.component';
     ExperienceComponent,
     EducationComponent,
     SkillsComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    ModalProjectComponent,
+    ModalSkillComponent,
+    ModalItemComponent,
+    ModalEducationComponent,
+    ModalExperienceComponent,
+    IconEditDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -64,9 +83,14 @@ import { LoginComponent } from './components/auth/modal/login/login.component';
     RippleModule,
     ImageModule,
     AvatarModule,
-    ProgressBarModule
+    ProgressBarModule,
+    InputTextareaModule,
+    ConfirmDialogModule,
+    InputNumberModule,
+    DynamicDialogModule,
+    InputMaskModule
   ],
-  providers: [],
+  providers: [ConfirmationService, MessageService, DialogService, DynamicDialogRef],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

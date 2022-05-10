@@ -37,12 +37,10 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.loginForm);
     this.loginService
       .login(this.user.value, this.password.value)
       .pipe(take(1))
       .subscribe((data: boolean) => {
-        console.log("datalogin " + data);
         if (data)
           this.closeModal();
         else
