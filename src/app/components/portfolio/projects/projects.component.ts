@@ -1,42 +1,63 @@
-import { Component, OnInit } from '@angular/core';
-import { ConfirmationService, ConfirmEventType, MessageService } from 'primeng/api';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { repeatWhen, Subject, take, takeUntil, tap } from 'rxjs';
+import { Candidate } from 'src/app/classes/candidate';
+import { Project } from 'src/app/classes/project';
+import { ModalService } from 'src/app/services/modal.service';
+import { ProjectService } from 'src/app/services/project.service';
+import { ModalProjectComponent } from '../modal/modal-project/modal-project.component';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent implements OnInit, OnDestroy {
 
-  public showDialog: boolean = false;
+  projects: Project[] = [];
 
-  constructor(private confirmationService: ConfirmationService, private messageService: MessageService) { }
+  private ref!: DynamicDialogRef;
+
+  private $subjectRetry: Subject<void> = new Subject<void>();
+
+  private $subjectUnsubscribe: Subject<void> = new Subject<void>();
+
+  public newProject: Project = new Project();
+
+  constructor(private modalService: ModalService, private projectService: ProjectService) { 
+  }
 
   ngOnInit(): void {
-  }
-  showModal() {
-    this.showDialog = true;
+    this.setNewProject();
+    this.projectService.list().pipe(takeUntil(this.$subjectUnsubscribe), repeatWhen(() => this.$subjectRetry)).subscribe( data => {
+      this.projects = data;
+    });
   }
 
-  delete() {
-    this.confirmationService.confirm({
-        message: 'Do you want to delete this record?',
-        header: 'Delete Confirmation',
-        icon: 'pi pi-exclamation-triangle',
-        accept: () => {
-            this.messageService.add({severity:'info', summary:'Confirmed', detail:'Record deleted'});
-        },
-        reject: (type: any) => {
-            switch(type) {
-                case ConfirmEventType.REJECT:
-                    this.messageService.add({severity:'error', summary:'Rejected', detail:'You have rejected'});
-                break;
-                case ConfirmEventType.CANCEL:
-                    this.messageService.add({severity:'warn', summary:'Cancelled', detail:'You have cancelled'});
-                break;
-            }
-        }
+  private setNewProject(): void {
+    this.newProject = new Project();
+    this.newProject.titulo = '';
+    this.newProject.descripcion = '';
+    this.newProject.candidato =  new Candidate();
+    this.newProject.candidato.id = 1;
+  }
+
+  showModal(e: Project) {
+    this.ref = this.modalService.open(ModalProjectComponent, e);
+    this.ref.onClose.pipe(take(1)).subscribe( data => {
+      this.setNewProject();
+      this.$subjectRetry.next();
     });
+  }
+
+  delete(id: number) {
+    this.modalService.confirm(this.projectService.deleteById(id).pipe(tap(data => this.$subjectRetry.next())));
+  }
+
+  ngOnDestroy(): void {
+    this.$subjectUnsubscribe.next();
+    this.$subjectUnsubscribe.complete();
+    this.$subjectRetry.complete();
   }
 
 }

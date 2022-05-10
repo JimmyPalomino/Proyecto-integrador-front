@@ -4,18 +4,17 @@
       <h4>Proyectos</h4>
     </div>
     <div class="col-sm-1">
-      <span class="myIcon"><i class="pi pi-plus" (click)="showModal()"></i></span>
+      <span class="myIcon"><i class="pi pi-plus" (click)="showModal(newProject)"></i></span>
     </div>
   </div>
-  <div class="row">
+  <div class="row" *ngFor="let e of projects">
     <div class="col-sm-11">
-      <h4 class="text-primary">e-Farmacia</h4>
-      <span class="font-weight-light">Desarrollar una aplicación web full stack, que mostrará: tus datos personales, estudios cursados, experiencia laboral, conocimiento de las tecnologías y lo que desees agregar. Es decir, ¡crear tu propio portfolio web!</span>
+      <h4 class="text-primary">{{e.titulo}}</h4>
+      <span class="font-weight-light">{{e.descripcion}}</span>
     </div>
     <div class="col-sm-1">
-      <span class="myIcon"><i class="pi pi-pencil" (click)="showModal()"></i></span>
-      <span class="myIcon"><i class="pi pi-trash" (click)="delete()"></i></span>
+      <span class="myIcon"><i class="pi pi-pencil" (click)="showModal(e)"></i></span>
+      <span class="myIcon"><i class="pi pi-trash" (click)="delete(e.id)"></i></span>
     </div>
   </div>
 </div>
-<app-modal-project [(showDialog)]="showDialog"></app-modal-project>
