@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, Validators } from '@angular/forms';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Candidate } from 'src/app/classes/candidate';
 import { CandidateService } from 'src/app/services/candidate.service';
@@ -23,11 +23,15 @@ export class ModalAboutComponent extends ModalItemComponent implements OnInit {
 
   public override submit(): void {
     let e: Candidate = this.data;
-    e.descripcion = this.form.get('acerca_de')?.value;
+    e.descripcion = this.acerca_de.value;
     if (e.id)
       this.candidateService.edit(e).subscribe( data => this.closeModal(e));
     else
       this.candidateService.create(e).subscribe( data => this.closeModal(e));
+  }
+
+  get acerca_de(): AbstractControl {
+    return this.getControl('acerca_de');
   }
 
 }
