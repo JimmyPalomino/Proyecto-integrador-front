@@ -22,8 +22,8 @@
       <br/>
       <span>{{ e.empresa }} - Fulltime</span>
       <br/>
-      <span>{{ e.fechaDesde }} - {{ e.fechaHasta }}</span>
-      <br />
+      <span>{{e.fechaDesde}} - {{e.fechaHasta ? e.fechaHasta : 'Actualmente'}}</span>
+      <br/>
       <span>{{ e.direccion }}</span>
     </div>
     <div class="col-sm-1">

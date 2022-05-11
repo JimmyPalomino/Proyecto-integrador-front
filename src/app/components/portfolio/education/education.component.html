@@ -17,8 +17,7 @@
         <br/>
         <span>{{e.carrera}}</span>
         <br/>
-        <span>{{e.fechaHasta}} - {{e.fechaHasta}}</span>
-        <br/>
+        <span>{{e.fechaDesde}} - {{e.fechaHasta ? e.fechaHasta : 'Actualmente'}}</span>
       </div>
       <div class="col-sm-1">
         <app-icon-edit-delete (editItemEvent)="showModal(e)" (deleteItemEvent)="delete(e.id)">

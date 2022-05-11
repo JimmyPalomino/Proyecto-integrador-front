@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, Validators } from '@angular/forms';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Education } from 'src/app/classes/education';
 import { EducationService } from 'src/app/services/education.service';
@@ -20,7 +20,8 @@ export class ModalEducationComponent extends ModalItemComponent implements OnIni
     this.form.addControl('universidad', new FormControl(e.nombreUniversidad, [Validators.required]));
     this.form.addControl('carrera', new FormControl(e.carrera, [Validators.required]));
     this.form.addControl('fecha_desde', new FormControl(e.fechaDesde, [Validators.required]));
-    this.form.addControl('fecha_hasta', new FormControl(e.fechaHasta, [Validators.required]));
+    this.form.addControl('actualmente', new FormControl( e.fechaHasta == null || e.fechaHasta == ""));
+    this.form.addControl('fecha_hasta', new FormControl(e.fechaHasta));
   }
 
   public override submit(): void {
@@ -34,5 +35,19 @@ export class ModalEducationComponent extends ModalItemComponent implements OnIni
     else
       this.educationService.create(e).subscribe( data => this.closeModal());
   }
+
+  get actualmente(): AbstractControl {
+    return this.getControl('actualmente');
+  }
+
+  get fechaHasta(): AbstractControl {
+    return this.getControl('fecha_hasta');
+  }
+
+  onChangeCheckbox() {
+    if (this.actualmente.value)
+      this.fechaHasta.setValue(null);
+  }
+
 
 }

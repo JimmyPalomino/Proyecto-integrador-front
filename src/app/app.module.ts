@@ -27,6 +27,7 @@ import {ConfirmationService, MessageService} from 'primeng/api';
 import {DialogService, DynamicDialogRef} from 'primeng/dynamicdialog';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import {InputMaskModule} from 'primeng/inputmask';
+import { CheckboxModule } from 'primeng/checkbox';
 
 import { LogoutComponent } from './components/auth/logout/logout.component';
 import { SpinnerComponent } from './components/util/spinner/spinner.component';
@@ -96,7 +97,8 @@ import { ModalDataComponent } from './components/portfolio/modal/modal-data/moda
     ConfirmDialogModule,
     InputNumberModule,
     DynamicDialogModule,
-    InputMaskModule
+    InputMaskModule,
+    CheckboxModule
   ],
   providers: [ConfirmationService, MessageService, DialogService, DynamicDialogRef],
   bootstrap: [AppComponent]
