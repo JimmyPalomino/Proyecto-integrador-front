@@ -89,3 +89,7 @@ div.row.ng-star-inserted {
     background: linear-gradient(45deg, red, blue);
     */
 }
+
+.col-avatar {
+    text-align: right;
+}
