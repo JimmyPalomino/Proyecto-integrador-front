@@ -26,6 +26,16 @@
         </textarea>
         <app-messages-error [control]="descripcion"></app-messages-error>
       </div>
+      <div class="form-group">
+          <p-inputMask
+            id="anio_realizacion"
+            mask="9999"
+            formControlName="anio_realizacion"
+            slotChar="yyyy"
+          >
+          </p-inputMask>
+          <app-messages-error [control]="anio_realizacion"></app-messages-error>
+      </div>
       <div class="footer-modal">
         <p-button
           (click)="submit()"

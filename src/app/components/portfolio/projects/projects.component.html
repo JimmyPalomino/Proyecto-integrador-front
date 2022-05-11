@@ -21,6 +21,8 @@
       <span class="font-weight-bolder">{{e.titulo}}</span>
       <br/>
       <span>{{e.descripcion}}</span>
+      <br/>
+      <span>{{e.fechaRealizacion}}</span>
     </div>
     <div class="col-sm-1">
       <app-icon-edit-delete (editItemEvent)="showModal(e)" (deleteItemEvent)="delete(e.id)">

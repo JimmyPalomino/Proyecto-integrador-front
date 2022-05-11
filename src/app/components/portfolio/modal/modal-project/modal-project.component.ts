@@ -19,12 +19,14 @@ export class ModalProjectComponent extends ModalItemComponent implements OnInit 
     let e: Project = this.data as Project;
     this.form.addControl('nombre', new FormControl(e.titulo, [Validators.required]));
     this.form.addControl('descripcion', new FormControl(e.descripcion, [Validators.required]));
+    this.form.addControl('anio_realizacion', new FormControl(e.fechaRealizacion, [Validators.required]));
   }
 
   public override submit(): void {
     let e: Project = this.data;
     e.titulo = this.nombre.value;
     e.descripcion = this.descripcion.value;
+    e.fechaRealizacion = this.anio_realizacion.value;
     if (e.id)
       this.projectService.edit(e).subscribe( data => this.closeModal());
     else
@@ -37,6 +39,10 @@ export class ModalProjectComponent extends ModalItemComponent implements OnInit 
 
   get descripcion(): AbstractControl {
     return this.getControl('descripcion');
+  }
+
+  get anio_realizacion(): AbstractControl {
+    return this.getControl('anio_realizacion');
   }
 
 }
