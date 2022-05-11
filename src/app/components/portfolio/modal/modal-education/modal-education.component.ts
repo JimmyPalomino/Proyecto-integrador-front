@@ -26,28 +26,39 @@ export class ModalEducationComponent extends ModalItemComponent implements OnIni
 
   public override submit(): void {
     let e: Education = this.data;
-    e.nombreUniversidad = this.form.get('universidad')?.value;
-    e.carrera = this.form.get('carrera')?.value;
-    e.fechaDesde = this.form.get('fecha_desde')?.value;
-    e.fechaHasta = this.form.get('fecha_hasta')?.value;
+    e.nombreUniversidad = this.universidad.value;
+    e.carrera = this.carrera.value;
+    e.fechaDesde = this.fecha_desde.value;
+    e.fechaHasta = this.fecha_hasta.value;
     if (e.id)
       this.educationService.edit(e).subscribe( data => this.closeModal());
     else
       this.educationService.create(e).subscribe( data => this.closeModal());
   }
 
+  get universidad(): AbstractControl {
+    return this.getControl('universidad');
+  }
+
+  get carrera(): AbstractControl {
+    return this.getControl('carrera');
+  }
+
+  get fecha_desde(): AbstractControl {
+    return this.getControl('fecha_desde');
+  }
+
   get actualmente(): AbstractControl {
     return this.getControl('actualmente');
   }
 
-  get fechaHasta(): AbstractControl {
+  get fecha_hasta(): AbstractControl {
     return this.getControl('fecha_hasta');
   }
 
   onChangeCheckbox() {
     if (this.actualmente.value)
-      this.fechaHasta.setValue(null);
+      this.fecha_hasta.setValue(null);
   }
-
 
 }
