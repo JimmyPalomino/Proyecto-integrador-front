@@ -4,7 +4,8 @@
       <h4>Proyectos</h4>
     </div>
     <div class="col-sm-1">
-      <span class="myIcon"><i class="pi pi-plus" (click)="showModal(newProject)"></i></span>
+      <app-icon-add (addItemEvent)="showModal(newProject)">
+      </app-icon-add>
     </div>
   </div>
   <div class="row" *ngFor="let e of projects">
@@ -13,8 +14,8 @@
       <span class="font-weight-light">{{e.descripcion}}</span>
     </div>
     <div class="col-sm-1">
-      <span class="myIcon"><i class="pi pi-pencil" (click)="showModal(e)"></i></span>
-      <span class="myIcon"><i class="pi pi-trash" (click)="delete(e.id)"></i></span>
+      <app-icon-edit-delete (editItemEvent)="showModal(e)" (deleteItemEvent)="delete(e.id)">
+      </app-icon-edit-delete>
     </div>
   </div>
 </div>

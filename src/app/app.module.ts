@@ -43,6 +43,9 @@ import { ModalItemComponent } from './components/portfolio/modal/modal-item/moda
 import { ModalEducationComponent } from './components/portfolio/modal/modal-education/modal-education.component';
 import { ModalExperienceComponent } from './components/portfolio/modal/modal-experience/modal-experience.component';
 import { IconEditDeleteComponent } from './components/portfolio/icon-edit-delete/icon-edit-delete.component';
+import { ModalAboutComponent } from './components/portfolio/modal/modal-about/modal-about.component';
+import { IconEditComponent } from './components/portfolio/icon-edit/icon-edit.component';
+import { IconAddComponent } from './components/portfolio/icon-add/icon-add.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +66,10 @@ import { IconEditDeleteComponent } from './components/portfolio/icon-edit-delete
     ModalItemComponent,
     ModalEducationComponent,
     ModalExperienceComponent,
-    IconEditDeleteComponent
+    IconEditDeleteComponent,
+    ModalAboutComponent,
+    IconEditComponent,
+    IconAddComponent
   ],
   imports: [
     BrowserModule,

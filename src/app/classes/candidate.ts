@@ -8,4 +8,6 @@ export class Candidate {
     numDocumento!: string;
     direccion!: string;
     redSocial!: string;
+    titulo!: string;
+    descripcion!: string
 }

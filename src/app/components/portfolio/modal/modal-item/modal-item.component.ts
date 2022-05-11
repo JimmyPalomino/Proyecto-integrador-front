@@ -22,8 +22,8 @@ export class ModalItemComponent implements OnDestroy {
     this.closeModal();
   }
 
-  public closeModal(): void {
-    this.ref.close({});
+  public closeModal(data?: any): void {
+    this.ref.close(data);
   }
 
   ngOnDestroy(): void {

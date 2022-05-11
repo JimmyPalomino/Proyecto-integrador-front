@@ -1,0 +1,33 @@
+<app-modal-item>
+    <ng-container title-header>
+      <h2>Editar acerca de</h2>
+    </ng-container>
+    <ng-container form>
+      <form [formGroup]="form">
+        <div class="form-group">
+          <textarea
+            pInputTextarea
+            formControlName="acerca_de"
+            placeholder="Acerca de"
+            class="form-control"
+            id="acerca_de"
+            [rows]="5" [cols]="30"
+          >
+          </textarea>
+        </div>
+  
+        <!--<app-messages-error [control]="nombre"></app-messages-error>-->
+        <div class="footer-modal">
+          <p-button
+            (click)="submit()"
+            [disabled]="form.invalid"
+            [ngClass]="{ 'disable-click': form.invalid }"
+            label="Submit"
+            class="button-modal"
+          ></p-button>
+          <p-button (click)="closeModal()" label="Cancel" class="button-modal">
+          </p-button>
+        </div>
+      </form>
+    </ng-container>
+  </app-modal-item>

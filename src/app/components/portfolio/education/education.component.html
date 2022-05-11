@@ -4,7 +4,8 @@
         <h4>Educación</h4>
       </div>
       <div class="col-sm-1">
-        <span class="myIcon"><i class="pi pi-plus" (click)="showModal(newEducation)"></i></span>
+        <app-icon-add (addItemEvent)="showModal(newEducation)">
+        </app-icon-add>
       </div>
     </div>
     <div class="row" *ngFor="let e of educations">
