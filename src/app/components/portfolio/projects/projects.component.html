@@ -9,9 +9,18 @@
     </div>
   </div>
   <div class="row" *ngFor="let e of projects">
-    <div class="col-sm-11">
-      <h4 class="font-weight-normal">{{e.titulo}}</h4>
-      <span class="font-weight-light">{{e.descripcion}}</span>
+    <div class="col-sm-1 col-avatar">
+      <p-avatar
+        image="/assets/images/proyecto.jpeg"
+        class="p-avatar-square p-avatar-l"
+        size="large"
+        shape="square"
+      ></p-avatar>
+    </div>
+    <div class="col-sm-10">
+      <span class="font-weight-bolder">{{e.titulo}}</span>
+      <br/>
+      <span>{{e.descripcion}}</span>
     </div>
     <div class="col-sm-1">
       <app-icon-edit-delete (editItemEvent)="showModal(e)" (deleteItemEvent)="delete(e.id)">

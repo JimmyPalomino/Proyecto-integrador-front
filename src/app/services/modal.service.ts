@@ -23,21 +23,21 @@ export class ModalService {
    
   confirm($observableAccept: Observable<any>): void {
       this.confirmationService.confirm({
-          message: 'Do you want to delete this record?',
-          header: 'Delete Confirmation',
+          message: '¿Estas seguro que deseas borrar este registro?',
+          header: 'Confirmar borrado',
           icon: 'pi pi-exclamation-triangle',
           accept: () => {
               $observableAccept.pipe(take(1)).subscribe( data => {
-                this.messageService.add({severity:'info', summary:'Confirmed', detail:'Record deleted'});
+                this.messageService.add({severity:'info', summary:'Registro borrado', detail:''});
               });
           },
           reject: (type: any) => {
               switch(type) {
                   case ConfirmEventType.REJECT:
-                      this.messageService.add({severity:'error', summary:'Rejected', detail:'You have rejected'});
+                      //this.messageService.add({severity:'error', summary:'Rejected', detail:'You have rejected'});
                   break;
                   case ConfirmEventType.CANCEL:
-                      this.messageService.add({severity:'warn', summary:'Cancelled', detail:'You have cancelled'});
+                      //this.messageService.add({severity:'warn', summary:'Cancelled', detail:'You have cancelled'});
                   break;
               }
           }
