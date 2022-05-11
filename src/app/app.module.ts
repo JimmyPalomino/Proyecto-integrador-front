@@ -46,6 +46,7 @@ import { IconEditDeleteComponent } from './components/portfolio/icon-edit-delete
 import { ModalAboutComponent } from './components/portfolio/modal/modal-about/modal-about.component';
 import { IconEditComponent } from './components/portfolio/icon-edit/icon-edit.component';
 import { IconAddComponent } from './components/portfolio/icon-add/icon-add.component';
+import { ModalDataComponent } from './components/portfolio/modal/modal-data/modal-data.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { IconAddComponent } from './components/portfolio/icon-add/icon-add.compo
     IconEditDeleteComponent,
     ModalAboutComponent,
     IconEditComponent,
-    IconAddComponent
+    IconAddComponent,
+    ModalDataComponent
   ],
   imports: [
     BrowserModule,

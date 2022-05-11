@@ -4,7 +4,8 @@
             <h4>Habilidades</h4>
         </div>
         <div class="col-sm-1">
-          <span class="myIcon"><i class="pi pi-plus" (click)="showModal(newSkill)"></i></span>
+            <app-icon-add (addItemEvent)="showModal(newSkill)">
+            </app-icon-add>
         </div>
     </div>
     <div class="row" *ngFor="let s of skills">
@@ -13,8 +14,8 @@
             <p-progressBar [value]="s.progreso" [style]="{'height': '1rem', 'width': '80%'}"></p-progressBar>
         </div>
         <div class="col-sm-1">
-          <span class="myIcon"><i class="pi pi-pencil" (click)="showModal(s)"></i></span>
-          <span class="myIcon"><i class="pi pi-trash" (click)="delete(s.id)"></i></span>
+            <app-icon-edit-delete (editItemEvent)="showModal(s)" (deleteItemEvent)="delete(s.id)">
+            </app-icon-edit-delete>
         </div>
     </div>
 </div>

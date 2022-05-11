@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
@@ -18,6 +18,10 @@ export class ModalItemComponent implements OnDestroy {
     this.data = config.data;
   }
 
+  protected getControl(name: string): AbstractControl {
+    return this.form.get(name) as AbstractControl;
+  }
+
   public submit(): void {
     this.closeModal();
   }
@@ -30,5 +34,4 @@ export class ModalItemComponent implements OnDestroy {
     if (this.ref) 
       this.ref.close();
   }
-
 }

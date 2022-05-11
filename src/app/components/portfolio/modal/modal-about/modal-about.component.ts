@@ -25,9 +25,9 @@ export class ModalAboutComponent extends ModalItemComponent implements OnInit {
     let e: Candidate = this.data;
     e.descripcion = this.form.get('acerca_de')?.value;
     if (e.id)
-      this.candidateService.edit(e).subscribe( data => this.closeModal(data));
+      this.candidateService.edit(e).subscribe( data => this.closeModal(e));
     else
-      this.candidateService.create(e).subscribe( data => this.closeModal(data));
+      this.candidateService.create(e).subscribe( data => this.closeModal(e));
   }
 
 }
