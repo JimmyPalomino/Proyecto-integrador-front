@@ -12,6 +12,7 @@
           class="form-control"
           id="cargo"
         />
+        <app-messages-error [control]="cargo"></app-messages-error>
       </div>
       <div class="form-group">
         <input
@@ -21,6 +22,7 @@
           class="form-control"
           id="empresa"
         />
+        <app-messages-error [control]="empresa"></app-messages-error>
       </div>
       <div class="form-row">
         <div class="form-group col-4">
@@ -34,6 +36,7 @@
             </p-inputMask>
             <label for="fecha_desde">Fecha desde</label>
           </span>
+          <app-messages-error [control]="fecha_desde"></app-messages-error>
         </div>
         <div class="form-group col-3" style="text-align: center;">
             <p-checkbox formControlName="actualmente" [binary]="true" inputId="binary" label="Actualmente" (onChange)="onChangeCheckbox()"></p-checkbox>
@@ -49,6 +52,7 @@
             </p-inputMask>
             <label for="fecha_hasta">Fecha hasta</label>
           </span>
+          <app-messages-error [control]="fecha_hasta"></app-messages-error>
         </div>
       </div>
 
@@ -61,9 +65,9 @@
           class="form-control"
           id="direccion"
         />
+        <app-messages-error [control]="direccion"></app-messages-error>
       </div>
 
-      <!--<app-messages-error [control]="nombre"></app-messages-error>-->
       <div class="footer-modal">
         <p-button
           (click)="submit()"

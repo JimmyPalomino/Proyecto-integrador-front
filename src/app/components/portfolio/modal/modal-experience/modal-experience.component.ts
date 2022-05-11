@@ -25,30 +25,46 @@ export class ModalExperienceComponent extends ModalItemComponent implements OnIn
     this.form.addControl('direccion', new FormControl(e.direccion, [Validators.required]));
   }
 
-  get actualmente(): AbstractControl {
-    return this.getControl('actualmente');
-  }
-
-  get fechaHasta(): AbstractControl {
-    return this.getControl('fecha_hasta');
-  }
-
-  onChangeCheckbox() {
-    if (this.actualmente.value)
-      this.fechaHasta.setValue(null);
-  }
-
   public override submit(): void {
     let e: Experience = this.data;
-    e.cargo = this.form.get('cargo')?.value;
-    e.empresa = this.form.get('empresa')?.value;
-    e.fechaDesde = this.form.get('fecha_desde')?.value;
-    e.fechaHasta = this.form.get('fecha_hasta')?.value;
-    e.direccion = this.form.get('direccion')?.value;
+    e.cargo = this.cargo.value;
+    e.empresa = this.empresa.value;
+    e.fechaDesde = this.fecha_desde.value;
+    e.fechaHasta = this.fecha_hasta.value;
+    e.direccion = this.direccion.value;
     if (e.id)
       this.experienceService.edit(e).subscribe( data => this.closeModal());
     else
       this.experienceService.create(e).subscribe( data => this.closeModal());
+  }
+
+  get cargo(): AbstractControl {
+    return this.getControl('cargo');
+  }
+
+  get empresa(): AbstractControl {
+    return this.getControl('empresa');
+  }
+
+  get fecha_desde(): AbstractControl {
+    return this.getControl('fecha_desde');
+  }
+
+  get actualmente(): AbstractControl {
+    return this.getControl('actualmente');
+  }
+
+  get fecha_hasta(): AbstractControl {
+    return this.getControl('fecha_hasta');
+  }
+
+  get direccion(): AbstractControl {
+    return this.getControl('direccion');
+  }
+
+  onChangeCheckbox() {
+    if (this.actualmente.value)
+      this.fecha_hasta.setValue(null);
   }
 
 }
