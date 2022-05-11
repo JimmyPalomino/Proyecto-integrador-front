@@ -8,7 +8,7 @@
   [closable]="false"
 >
   <ng-template pTemplate="header">
-    <h3>Login</h3>
+    <h3>Iniciar sesión</h3>
   </ng-template>
   <ng-template pTemplate="content">
     <form [formGroup]="loginForm">
@@ -42,11 +42,11 @@
       (click)="login()"
       [disabled]="loginForm.invalid"
       [ngClass]="{'disable-click': loginForm.invalid}"
-      label="Submit"
+      label="Entrar"
     ></p-button>
     <p-button
       (click)="closeModal()"
-      label="Cancel"
+      label="Cancelar"
     ></p-button>
   </ng-template>
 </p-dialog>
