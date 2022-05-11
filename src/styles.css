@@ -2,6 +2,7 @@
 
 html, body {
     width: 100%;
+    line-height: 1.25;
 }
 
 .blockPortfolio {
@@ -63,4 +64,8 @@ html, body {
 .disable-click {
     pointer-events: none;
     cursor: not-allowed;
+}
+
+div.row.ng-star-inserted {
+    margin-bottom: 1.25rem;
 }
