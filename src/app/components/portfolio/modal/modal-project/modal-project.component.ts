@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, Validators } from '@angular/forms';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Project } from 'src/app/classes/project';
 import { ProjectService } from 'src/app/services/project.service';
@@ -23,11 +23,20 @@ export class ModalProjectComponent extends ModalItemComponent implements OnInit 
 
   public override submit(): void {
     let e: Project = this.data;
-    e.titulo = this.form.get('nombre')?.value;
-    e.descripcion = this.form.get('descripcion')?.value;
+    e.titulo = this.nombre.value;
+    e.descripcion = this.descripcion.value;
     if (e.id)
       this.projectService.edit(e).subscribe( data => this.closeModal());
     else
       this.projectService.create(e).subscribe( data => this.closeModal());
   }
+
+  get nombre(): AbstractControl {
+    return this.getControl('nombre');
+  }
+
+  get descripcion(): AbstractControl {
+    return this.getControl('descripcion');
+  }
+
 }
