@@ -4,17 +4,17 @@
             <h4>Habilidades</h4>
         </div>
         <div class="col-sm-1">
-          <span class="myIcon"><i class="pi pi-plus" (click)="showModal()"></i></span>
+          <span class="myIcon"><i class="pi pi-plus" (click)="showModal(newSkill)"></i></span>
         </div>
     </div>
-    <div class="row">
+    <div class="row" *ngFor="let s of skills">
         <div class="col-sm-11">
-            <span>Java EE</span>
-            <p-progressBar [value]="70" [style]="{'height': '1rem', 'width': '80%'}"></p-progressBar>
+            <span>{{s.nombre}}</span>
+            <p-progressBar [value]="s.progreso" [style]="{'height': '1rem', 'width': '80%'}"></p-progressBar>
         </div>
         <div class="col-sm-1">
-          <span class="myIcon"><i class="pi pi-pencil" (click)="showModal()"></i></span>
-          <span class="myIcon"><i class="pi pi-trash" (click)="delete()"></i></span>
+          <span class="myIcon"><i class="pi pi-pencil" (click)="showModal(s)"></i></span>
+          <span class="myIcon"><i class="pi pi-trash" (click)="delete(s.id)"></i></span>
         </div>
     </div>
 </div>
