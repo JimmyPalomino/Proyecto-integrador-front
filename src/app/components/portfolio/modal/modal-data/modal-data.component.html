@@ -5,6 +5,29 @@
     <ng-container form>
       <form [formGroup]="form">
         <div class="form-group">
+          <!--
+          <p-fileUpload 
+            name="myfile[]"
+            (onUpload)="onUpload($event)"
+            (onBeforeUpload)="onBeforeUpload($event)"
+            (onSelect)="onSelect($event)"
+            accept="image/*"
+            mode="basic"
+            [customUpload]="true"
+            [showUploadButton]="false"
+          >
+          </p-fileUpload>
+          -->
+          <div id="myAvatar">
+            <p-avatar [image]="urlProfileImage" class="p-avatar-circle p-avatar-xl" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
+          </div>
+
+          <input id="fileUpload" type="file" class="file-upload" (change)="onSelectImage($event)" accept="image/*" />
+          
+        
+
+        </div>
+        <div class="form-group">
             <input
               pInputText
               formControlName="nombre"

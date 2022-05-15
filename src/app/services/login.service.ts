@@ -20,7 +20,7 @@ export class LoginService {
     if (user == 'pepe' && password == '1234') {
       localStorage.setItem(
         this.KEY_SAVE_SESSION,
-        JSON.stringify({ user: user })
+        JSON.stringify({ user: user, candidato: 1 })
       );
       this.$loggedSubject.next(true);
       return of(true);
@@ -37,6 +37,10 @@ export class LoginService {
   public isLogged(): boolean {
     const session: string | null = localStorage.getItem(this.KEY_SAVE_SESSION);
     return session != null && session != '';
+  }
+
+  public getSession(): Object {
+    return JSON.parse(localStorage.getItem(this.KEY_SAVE_SESSION) as string);
   }
 
   public loggedSubject(): BehaviorSubject<boolean> {

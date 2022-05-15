@@ -9,7 +9,7 @@
 
     <p-image src="/assets/images/world.jpg" alt="Image" width="100%" height="300"></p-image>
     <div id="myAvatar">
-        <p-avatar image="/assets/images/blonde.jpg" class="p-avatar-circle p-avatar-xl" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
+        <p-avatar [image]="candidate.urlProfileImage" class="p-avatar-circle p-avatar-xl" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
         <app-icon-edit (editItemEvent)="showModal(candidate)">
         </app-icon-edit>
         <h4>{{candidate.nombre + ' ' + candidate.apellido}}</h4>

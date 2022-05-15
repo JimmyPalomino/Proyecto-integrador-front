@@ -28,6 +28,12 @@ import {DialogService, DynamicDialogRef} from 'primeng/dynamicdialog';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import {InputMaskModule} from 'primeng/inputmask';
 import { CheckboxModule } from 'primeng/checkbox';
+import {FileUploadModule} from 'primeng/fileupload';
+
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { environment } from '../environments/environment';
 
 import { LogoutComponent } from './components/auth/logout/logout.component';
 import { SpinnerComponent } from './components/util/spinner/spinner.component';
@@ -98,7 +104,11 @@ import { ModalDataComponent } from './components/portfolio/modal/modal-data/moda
     InputNumberModule,
     DynamicDialogModule,
     InputMaskModule,
-    CheckboxModule
+    CheckboxModule,
+    FileUploadModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireStorageModule
   ],
   providers: [ConfirmationService, MessageService, DialogService, DynamicDialogRef],
   bootstrap: [AppComponent]
