@@ -20,12 +20,12 @@
           -->
           <div id="myAvatar">
             <p-avatar [image]="urlProfileImage" class="p-avatar-circle p-avatar-xl" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
+            <label for="fileUpload">
+              <span class="myIcon"><i class="pi pi-upload" ></i></span>
+              <span class="myIcon">{{selectedFile?.name}}</span>
+            </label>
+            <input id="fileUpload" style="display: none;" type="file" class="file-upload" (change)="onSelectImage($event)" accept="image/*" />
           </div>
-
-          <input id="fileUpload" type="file" class="file-upload" (change)="onSelectImage($event)" accept="image/*" />
-          
-        
-
         </div>
         <div class="form-group">
             <input
