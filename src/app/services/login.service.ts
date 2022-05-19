@@ -17,7 +17,7 @@ export class LoginService {
 
   //Modificar luego este metodo, cuerpo y encabezado
   public login(user: string, password: string): Observable<boolean> {
-    if (user == 'pepe' && password == '1234') {
+    if (user == 'ceci' && password == '1234') {
       localStorage.setItem(
         this.KEY_SAVE_SESSION,
         JSON.stringify({ user: user, candidato: 1 })

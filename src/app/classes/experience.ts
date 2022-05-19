@@ -6,8 +6,6 @@ export class Experience {
     cargo!: string
     direccion!: string
     empresa!: string
-    tecnologia!: any;
-    experiencia!: number
     fechaDesde!: string
     fechaHasta!: string
 

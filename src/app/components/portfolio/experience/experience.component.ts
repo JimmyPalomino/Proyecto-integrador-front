@@ -38,8 +38,6 @@ export class ExperienceComponent implements OnInit, OnDestroy {
     this.newExperience = new Experience();
     this.newExperience.candidato =  new Candidate();
     this.newExperience.candidato.id = 1;
-    this.newExperience.tecnologia = {id: 1};
-    this.newExperience.experiencia = 1;
   }
 
   showModal(e: Experience) {
