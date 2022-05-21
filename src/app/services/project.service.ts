@@ -9,19 +9,19 @@ import { HttpService } from './http.service';
 export class ProjectService extends HttpService<Project> {
 
   public list(): Observable<Project[]> {
-    return this.getAll("/api/lista-proyecto");
+    return this.getAll("/lista-proyecto");
   }
 
   public create(e: Project): Observable<Project>{
-    return this.postOne("/api/agregar-proyecto", e);
+    return this.postOne("/agregar-proyecto", e);
   }
 
   public edit(e: Project): Observable<Project>{
-    return this.putOne("/api/editar-proyecto/" + e.id, e);
+    return this.putOne("/editar-proyecto/" + e.id, e);
   }
 
   public deleteById(id: number): Observable<Project> {
-    return this.deleteOne("/api/eliminar-proyecto/" + id, {} as Project);
+    return this.deleteOne("/eliminar-proyecto/" + id, {} as Project);
   }
 
 }

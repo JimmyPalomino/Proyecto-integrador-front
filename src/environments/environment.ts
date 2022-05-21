@@ -14,6 +14,7 @@ const firebaseConfig = {
 
 export const environment = {
   production: false,
+  API_PATH: '/api',
   firebase: firebaseConfig
 };
 

@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { finalize, Observable, switchMap, timer } from 'rxjs';
+import { Observable } from 'rxjs';
 import { LoadingService } from './loading.service';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -21,22 +22,22 @@ export abstract class HttpService<T> {
       )
     );
     */
-    return this.http.get<T>(url);
+    return this.http.get<T>(environment.API_PATH + url);
   }
 
   public getAll(url: string): Observable<T[]> {
-    return this.http.get<T[]>(url);
+    return this.http.get<T[]>(environment.API_PATH + url);
   }
 
   public postOne(url: string, body: T): Observable<T> {
-    return this.http.post<T>(url, body);
+    return this.http.post<T>(environment.API_PATH + url, body);
   }
 
   public putOne(url: string, body: T): Observable<T> {
-    return this.http.put<T>(url, body);
+    return this.http.put<T>(environment.API_PATH + url, body);
   }
 
   public deleteOne(url: string, body: T): Observable<T> {
-    return this.http.delete<T>(url, body);
+    return this.http.delete<T>(environment.API_PATH + url, body);
   }
 }

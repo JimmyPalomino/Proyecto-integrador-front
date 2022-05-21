@@ -9,19 +9,19 @@ import { HttpService } from './http.service';
 export class SkillService extends HttpService<Skill> {
 
   public list(): Observable<Skill[]> {
-    return this.getAll("/api/lista-habilidad");
+    return this.getAll("/lista-habilidad");
   }
 
   public create(s: Skill): Observable<Skill>{
-    return this.postOne("/api/agregar-habilidad", s);
+    return this.postOne("/agregar-habilidad", s);
   }
 
   public edit(e: Skill): Observable<Skill>{
-    return this.putOne("/api/modificar-habilidad/" + e.id, e);
+    return this.putOne("/modificar-habilidad/" + e.id, e);
   }
 
   public deleteById(id: number): Observable<Skill> {
-    return this.deleteOne("/api/educacion-habilidad/" + id, {} as Skill);
+    return this.deleteOne("/educacion-habilidad/" + id, {} as Skill);
   }
 
 }
