@@ -7,7 +7,7 @@ const app = express();
 
 app.use('/api', proxy('https://proyecto-dev-full-stack.herokuapp.com', {
     https: true,
-    preserveHostHdr: true
+    preserveHostHdr: false
   }));
 
 // Serve only the static files form the dist directory
