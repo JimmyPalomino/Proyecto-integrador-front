@@ -5,12 +5,11 @@ const path = require('path');
 
 const app = express();
 
-/*
-app.use('/api', proxy('https://proyecto-dev-full-stack.herokuapp.com', {
+app.use('/api', proxy('proyecto-dev-full-stack.herokuapp.com', {
     https: true,
     preserveHostHdr: false
 }));
-*/
+
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/proyecto-integrador-front'));
 
