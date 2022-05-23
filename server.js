@@ -17,7 +17,7 @@ app.use('/api', proxy('proyecto-dev-full-stack.herokuapp.com', {
 app.use(
     '/api',
     createProxyMiddleware({
-      target: 'https://proyecto-dev-full-stack.herokuapp.com/api',
+      target: 'https://proyecto-dev-full-stack.herokuapp.com',
       changeOrigin: true,
     })
   );
